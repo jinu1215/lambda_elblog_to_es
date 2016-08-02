@@ -31,7 +31,7 @@ pip install -r requirements.txt
 Set Config
 -------------------------
 Modify configuration for set elasticsearch information
-- file name: lambda_function.sh
+- file name: lambda_function.py
 - configs
 ```
 ES_HOST: elasticsearch host
