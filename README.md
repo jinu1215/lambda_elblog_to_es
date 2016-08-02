@@ -41,9 +41,9 @@ ES_BULK_CHUNK_SIZE: bulk upload chuk size (default 1000)
 
 Make lambda package
 -------------------
-run make_lambda_pkg.sh
-Must run script on Amazon linux.
-If you run script on ubuntu, package(zip file) is not understood in lambda.
+run make_lambda_pkg.sh<br />
+Must run script on Amazon linux.<br />
+If you run script on ubuntu, package(zip file) is not understood in lambda.<br />
 ```
 ./make_lambda_pkg.sh
 ```
