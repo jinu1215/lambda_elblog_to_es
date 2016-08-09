@@ -31,10 +31,10 @@ pip install -r requirements.txt
 Set Config
 -------------------------
 Modify configuration for set elasticsearch information
-- file name: lambda_function.py
+- file name: configs.py
 - configs
 ```
-ES_HOST: elasticsearch host
+ES_HOST: elasticsearch host (Must set value)
 ES_PORT: elasticsearch port (default 80) 
 ES_BULK_CHUNK_SIZE: bulk upload chuk size (default 1000)
 ```

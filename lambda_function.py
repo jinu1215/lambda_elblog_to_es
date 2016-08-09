@@ -6,10 +6,11 @@ import re
 from datetime import datetime
 from elasticsearch import Elasticsearch
 from elasticsearch import helpers
+import configs
 
-ES_HOST=<your elasticsearch host>
-ES_PORT=80
-ES_BULK_CHUNK_SIZE=1000
+#ES_HOST=<your elasticsearch host>
+#ES_PORT=80
+#ES_BULK_CHUNK_SIZE=1000
 ELB_KEYS = ["timestamp", "elb", "client_ip", "client_port",
             "backend_ip", "backend_port", "request_processing_time",
             "backend_processing_time", "response_processing_time",
@@ -38,7 +39,7 @@ def lambda_handler(event, context):
         R = ELB_R
     body = obj["Body"].read()
 
-    es = Elasticsearch(host=ES_HOST, port=ES_PORT)
+    es = Elasticsearch(host=configs.ES_HOST, port=configs.ES_PORT)
     actions = []
     elb_name = ""
 
@@ -54,7 +55,7 @@ def lambda_handler(event, context):
 
         actions.append({"_index": index, "_type": elb_name, "_source": doc})
 
-        if len(actions) > 1000:
+        if len(actions) > configs.ES_BULK_CHUNK_SIZE:
             helpers.bulk(es, actions)
             actions = []
 
